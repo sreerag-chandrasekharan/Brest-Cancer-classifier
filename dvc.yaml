@@ -17,3 +17,13 @@ stages:
       - models/cytosis
     metrics:
       - metrics_cytosis.json
+      
+  preprocess_images:
+    cmd: python src/preprocess_images.py --params params.yaml
+    deps:
+      - src/preprocess_images.py
+      - data/raw/model_2/train
+      - data/raw/model_2/val
+      - data/raw/model_2/test
+    outs:
+      - data/processed_image/image_data  # could store TFRecords or numpy arrays

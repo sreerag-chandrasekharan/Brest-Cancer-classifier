@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/mlruns/751312019500101146/b2c3c910dc154fb3b5f7f7cdc20eafd0/artifacts
+end_time: 1756070047526
+entry_point_name: ''
+experiment_id: '751312019500101146'
+lifecycle_stage: active
+run_id: b2c3c910dc154fb3b5f7f7cdc20eafd0
+run_name: masked-asp-285
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756070041388
+status: 3
+tags: []
+user_id: Sreerag

@@ -29,8 +29,8 @@ stages:
       nfiles: 5
     - path: params.yaml
       hash: md5
-      md5: 6eadb7802c66e8f870c2f4f14ad0ff9e
-      size: 935
+      md5: 21bb00a1f7e323c536a69c2030e7f594
+      size: 971
     - path: src/train_cytosis.py
       hash: md5
       md5: 8d91018ae8ee5cd6fe1920d4af2e5a3e

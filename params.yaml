@@ -40,9 +40,9 @@ dataset:
     seed: 42
 
   images:
-    train_path: "data/train"
-    val_path: "data/val"
-    test_path: "data/test"
+    train_path: "data/raw/model_2/train"
+    val_path: "data/raw/model_2/val"
+    test_path: "data/raw/model_2/test"
     image_size: [224, 224]
     shuffle: true
     seed: 42
