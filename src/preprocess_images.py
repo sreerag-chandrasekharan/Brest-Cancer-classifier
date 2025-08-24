@@ -1,54 +1,42 @@
-import os
 import tensorflow as tf
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import yaml
+import os
 
-# Load params
+# Load config
 with open("params.yaml", "r") as f:
     config = yaml.safe_load(f)
 
-img_params = config["dataset"]["images"]
-IMG_HEIGHT, IMG_WIDTH = img_params["image_size"]
+IMG_HEIGHT, IMG_WIDTH = config["dataset"]["images"]["image_size"]
 BATCH_SIZE = config["models"]["image_model"]["batch_size"]
-SEED = img_params["seed"]
 
-# Paths
-train_dir = img_params["train_path"]
-val_dir = img_params["val_path"]
-test_dir = img_params["test_path"]
-processed_dir = "data/processed/image_data"
-os.makedirs(processed_dir, exist_ok=True)
+train_dir = config["dataset"]["images"]["train_path"]
+val_dir = config["dataset"]["images"]["val_path"]
+test_dir = config["dataset"]["images"]["test_path"]
 
-# ImageDataGenerator with rescaling
-datagen = ImageDataGenerator(rescale=1./255)
+save_dir = "data/processed/image_data"
+os.makedirs(save_dir, exist_ok=True)
 
-def preprocess_images(directory, shuffle=True):
-    dataset = datagen.flow_from_directory(
-        directory,
-        target_size=(IMG_HEIGHT, IMG_WIDTH),
-        batch_size=BATCH_SIZE,
-        class_mode='binary',  # assuming binary classification
-        shuffle=shuffle,
-        seed=SEED
+def load_and_preprocess(path, batch_size=BATCH_SIZE):
+    ds = tf.keras.utils.image_dataset_from_directory(
+        path,
+        image_size=(IMG_HEIGHT, IMG_WIDTH),
+        batch_size=batch_size,
+        label_mode="int",
+        color_mode="rgb",
+        shuffle=True
     )
-    images, labels = [], []
-    for _ in range(len(dataset)):
-        batch_imgs, batch_labels = next(dataset)
-        images.append(batch_imgs)
-        labels.append(batch_labels)
-    images = tf.convert_to_tensor(tf.concat(images, axis=0), dtype=tf.float32)
-    labels = tf.cast(tf.convert_to_tensor(tf.concat(labels, axis=0)), tf.int32)
-    labels = tf.cast(labels, tf.int32)
-    return tf.data.Dataset.from_tensor_slices((images, labels))
+    # Normalize images
+    ds = ds.map(lambda x, y: (x / 255.0, y))
+    return ds
 
-# Process datasets
-train_ds = preprocess_images(train_dir, shuffle=img_params["shuffle"])
-val_ds = preprocess_images(val_dir, shuffle=False)
-test_ds = preprocess_images(test_dir, shuffle=False)
+# Preprocess datasets
+train_ds = load_and_preprocess(train_dir)
+val_ds = load_and_preprocess(val_dir)
+test_ds = load_and_preprocess(test_dir)
 
-# Save datasets as TF
-tf.data.experimental.save(train_ds, os.path.join(processed_dir, "train_ds"))
-tf.data.experimental.save(val_ds, os.path.join(processed_dir, "val_ds"))
-tf.data.experimental.save(test_ds, os.path.join(processed_dir, "test_ds"))
+# Save datasets as TF format
+tf.data.experimental.save(train_ds, os.path.join(save_dir, "train"))
+tf.data.experimental.save(val_ds, os.path.join(save_dir, "val"))
+tf.data.experimental.save(test_ds, os.path.join(save_dir, "test"))
 
-print("Image preprocessing complete! Saved TF datasets to 'data/processed/image_data'.")
+print("Preprocessing complete. Datasets saved in TF format at", save_dir)
