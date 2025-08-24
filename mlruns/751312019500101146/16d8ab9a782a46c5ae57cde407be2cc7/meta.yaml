@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/mlruns/751312019500101146/16d8ab9a782a46c5ae57cde407be2cc7/artifacts
+end_time: 1756067119051
+entry_point_name: ''
+experiment_id: '751312019500101146'
+lifecycle_stage: active
+run_id: 16d8ab9a782a46c5ae57cde407be2cc7
+run_name: amazing-robin-132
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756067118988
+status: 4
+tags: []
+user_id: Sreerag

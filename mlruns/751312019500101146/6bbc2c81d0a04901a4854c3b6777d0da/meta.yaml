@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/mlruns/751312019500101146/6bbc2c81d0a04901a4854c3b6777d0da/artifacts
+end_time: 1756067050462
+entry_point_name: ''
+experiment_id: '751312019500101146'
+lifecycle_stage: active
+run_id: 6bbc2c81d0a04901a4854c3b6777d0da
+run_name: whimsical-foal-706
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756067050363
+status: 4
+tags: []
+user_id: Sreerag

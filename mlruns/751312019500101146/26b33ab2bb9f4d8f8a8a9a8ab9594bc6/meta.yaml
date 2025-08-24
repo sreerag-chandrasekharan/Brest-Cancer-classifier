@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/mlruns/751312019500101146/26b33ab2bb9f4d8f8a8a9a8ab9594bc6/artifacts
+end_time: 1756067245108
+entry_point_name: ''
+experiment_id: '751312019500101146'
+lifecycle_stage: active
+run_id: 26b33ab2bb9f4d8f8a8a9a8ab9594bc6
+run_name: abundant-bug-202
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756067245059
+status: 4
+tags: []
+user_id: Sreerag

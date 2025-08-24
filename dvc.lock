@@ -1,13 +1,13 @@
 schema: '2.0'
 stages:
   preprocess_cytosis:
-    cmd: python src/preprocess_cytosis.py --input data/raw/model_1/data.csv 
-      --outdir data/processed_cytosis
+    cmd: python src/preprocess_cytosis.py --input 
+      data/processed/model_1/cleaned_data.csv --outdir data/processed_cytosis
     deps:
-    - path: data/raw/model_1/data.csv
+    - path: data/processed/model_1/cleaned_data.csv
       hash: md5
-      md5: 6165d90b8708bb1c1dd14245cc6bef46
-      size: 125204
+      md5: fd92340cce01183a92291fbaabb0986f
+      size: 121928
     - path: src/preprocess_cytosis.py
       hash: md5
       md5: d5e8f8e1db87b146c6d591d4042fb4e5
@@ -15,6 +15,33 @@ stages:
     outs:
     - path: data/processed_cytosis
       hash: md5
-      md5: 7a52bbea2a898eda88260f66f0b53a4d.dir
-      size: 354218
+      md5: 354693fcfd46a3ce74a42b993e2ea0d0.dir
+      size: 341665
       nfiles: 5
+  train_cytosis:
+    cmd: python src/train_cytosis.py --datadir data/processed_cytosis --params 
+      params.yaml --modeldir models/cytosis --metrics metrics_cytosis.json
+    deps:
+    - path: data/processed_cytosis
+      hash: md5
+      md5: 354693fcfd46a3ce74a42b993e2ea0d0.dir
+      size: 341665
+      nfiles: 5
+    - path: params.yaml
+      hash: md5
+      md5: 6eadb7802c66e8f870c2f4f14ad0ff9e
+      size: 935
+    - path: src/train_cytosis.py
+      hash: md5
+      md5: 8d91018ae8ee5cd6fe1920d4af2e5a3e
+      size: 2454
+    outs:
+    - path: metrics_cytosis.json
+      hash: md5
+      md5: 04bfb52610cb1880085dbed9c7155efc
+      size: 99
+    - path: models/cytosis
+      hash: md5
+      md5: f808ca2355a643529e52cd3a7d9dc492.dir
+      size: 1620
+      nfiles: 1

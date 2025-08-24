@@ -15,7 +15,7 @@ def train(data_dir: str, params_path: str, model_dir: str, metrics_path: str):
 
     # --- Load params
     with open(params_path, "r") as f:
-        params = yaml.safe_load(f)["cytosis_train"]
+        params = yaml.safe_load(f)["models"]["cytosis_model"]
 
     # --- Build model
     pipe = Pipeline([
@@ -24,7 +24,7 @@ def train(data_dir: str, params_path: str, model_dir: str, metrics_path: str):
             solver='liblinear',
             class_weight=params['class_weight'],
             max_iter=params['max_iter'],
-            random_state=42
+            random_state= params['random_state']
         ))
     ])
 

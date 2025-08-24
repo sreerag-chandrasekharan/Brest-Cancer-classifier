@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/mlruns/751312019500101146/4f830a1da20344d4899fdd296122a32b/artifacts
+end_time: 1756067521677
+entry_point_name: ''
+experiment_id: '751312019500101146'
+lifecycle_stage: active
+run_id: 4f830a1da20344d4899fdd296122a32b
+run_name: traveling-skunk-749
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756067511956
+status: 3
+tags: []
+user_id: Sreerag

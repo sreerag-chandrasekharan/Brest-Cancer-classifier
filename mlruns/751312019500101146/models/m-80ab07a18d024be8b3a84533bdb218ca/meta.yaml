@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/mlruns/751312019500101146/models/m-80ab07a18d024be8b3a84533bdb218ca/artifacts
+creation_timestamp: 1756067512130
+experiment_id: '751312019500101146'
+last_updated_timestamp: 1756067521661
+model_id: m-80ab07a18d024be8b3a84533bdb218ca
+model_type: null
+name: model
+source_run_id: 4f830a1da20344d4899fdd296122a32b
+status: 2
+status_message: null
