@@ -1,6 +1,6 @@
 stages:
   preprocess_cytosis:
-    cmd: python src/preprocess_cytosis.py --input data/raw/cytosis.csv --outdir data/processed_cytosis
+    cmd: python src/preprocess_cytosis.py --input data/raw/model_1/data.csv --outdir data/processed_cytosis
     deps:
       - src/preprocess_cytosis.py
       - data/raw/model_1/data.csv

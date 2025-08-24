@@ -1,0 +1,20 @@
+schema: '2.0'
+stages:
+  preprocess_cytosis:
+    cmd: python src/preprocess_cytosis.py --input data/raw/model_1/data.csv 
+      --outdir data/processed_cytosis
+    deps:
+    - path: data/raw/model_1/data.csv
+      hash: md5
+      md5: 6165d90b8708bb1c1dd14245cc6bef46
+      size: 125204
+    - path: src/preprocess_cytosis.py
+      hash: md5
+      md5: d5e8f8e1db87b146c6d591d4042fb4e5
+      size: 1549
+    outs:
+    - path: data/processed_cytosis
+      hash: md5
+      md5: 7a52bbea2a898eda88260f66f0b53a4d.dir
+      size: 354218
+      nfiles: 5
