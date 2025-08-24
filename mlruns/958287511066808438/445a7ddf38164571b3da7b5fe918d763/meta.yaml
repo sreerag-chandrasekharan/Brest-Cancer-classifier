@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/mlruns/958287511066808438/445a7ddf38164571b3da7b5fe918d763/artifacts
+end_time: 1756077658088
+entry_point_name: ''
+experiment_id: '958287511066808438'
+lifecycle_stage: active
+run_id: 445a7ddf38164571b3da7b5fe918d763
+run_name: rambunctious-hog-327
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756077248459
+status: 4
+tags: []
+user_id: Sreerag

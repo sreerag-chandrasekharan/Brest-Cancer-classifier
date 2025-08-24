@@ -27,3 +27,14 @@ stages:
       - data/raw/model_2/test
     outs:
       - data/processed/image_data  # could store TFRecords or numpy arrays
+
+  train_images:
+    cmd: python src/train_images.py --params params.yaml
+    deps:
+      - src/train_images.py
+      - data/processed/image_data
+      - params.yaml
+    outs:
+      - models/image_resnet50.h5
+    metrics:
+      - results/image_metrics.json

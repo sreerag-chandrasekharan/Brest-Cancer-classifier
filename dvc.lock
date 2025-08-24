@@ -45,3 +45,31 @@ stages:
       md5: f808ca2355a643529e52cd3a7d9dc492.dir
       size: 1620
       nfiles: 1
+  preprocess_images:
+    cmd: python src/preprocess_images.py --params params.yaml
+    deps:
+    - path: data/raw/model_2/test
+      hash: md5
+      md5: 0071aa883b585d3295d48cd910236711.dir
+      size: 18741944
+      nfiles: 1908
+    - path: data/raw/model_2/train
+      hash: md5
+      md5: b57c52acf3b15d3ea924179877be04ac.dir
+      size: 37955319
+      nfiles: 3816
+    - path: data/raw/model_2/val
+      hash: md5
+      md5: 03e6a2e30a67fd211e0d7b3bd16bc6ad.dir
+      size: 18784715
+      nfiles: 1908
+    - path: src/preprocess_images.py
+      hash: md5
+      md5: 57a72374b8cbaa68ac537ec8cf63da34
+      size: 1328
+    outs:
+    - path: data/processed/image_data
+      hash: md5
+      md5: 7f550319fc321ae24cdae92cc6889b80.dir
+      size: 4595366416
+      nfiles: 9
