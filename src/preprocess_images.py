@@ -34,4 +34,9 @@ train_ds = load_and_preprocess(train_dir)
 val_ds = load_and_preprocess(val_dir)
 test_ds = load_and_preprocess(test_dir)
 
-print("Preprocessing complete. Datasets saved in TF format at", save_dir)
+# Save datasets as TF format
+tf.data.experimental.save(train_ds, os.path.join(save_dir, "train"))
+tf.data.experimental.save(val_ds, os.path.join(save_dir, "val"))
+tf.data.experimental.save(test_ds, os.path.join(save_dir, "test"))
+
+print("Preprocessing complete. Datasets saved in TF format at")

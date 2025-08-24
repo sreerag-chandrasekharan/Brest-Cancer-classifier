@@ -26,4 +26,4 @@ stages:
       - data/raw/model_2/val
       - data/raw/model_2/test
     outs:
-      - data/processed_image/image_data  # could store TFRecords or numpy arrays
+      - data/processed/image_data  # could store TFRecords or numpy arrays
