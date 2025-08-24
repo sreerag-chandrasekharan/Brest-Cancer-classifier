@@ -1,0 +1,48 @@
+
+# params.yaml
+
+models:
+  cytosis_model:
+    test_size: 0.3
+    random_state: 42
+    C: 1.0
+    class_weight: balanced
+    max_iter: 1000
+    epochs: 20
+    batch_size: 32
+
+  image_model:
+    type: "image"
+    architecture: "ResNet50"
+    weights: "imagenet"
+    include_top: false
+    input_shape: [224, 224, 3]
+    trainable_layers: 0
+    fine_tune_layers: 20
+    pooling: "avg"
+    dense_units: 128
+    dropout: 0.5
+    loss: "binary_crossentropy"
+    optimizer: "Adam"
+    learning_rate: 0.0001
+    fine_tune_lr: 0.00001
+    metrics: ["accuracy"]
+    epochs: 15
+    fine_tune_epochs: 5
+    batch_size: 32
+
+dataset:
+  cytosis:
+    path: "data/cytosis.csv"
+    target_column: "label"
+    test_split: 0.2
+    shuffle: true
+    seed: 42
+
+  images:
+    train_path: "data/train"
+    val_path: "data/val"
+    test_path: "data/test"
+    image_size: [224, 224]
+    shuffle: true
+    seed: 42

@@ -1,0 +1,19 @@
+stages:
+  preprocess_cytosis:
+    cmd: python src/preprocess_cytosis.py --input data/raw/cytosis.csv --outdir data/processed_cytosis
+    deps:
+      - src/preprocess_cytosis.py
+      - data/raw/model_1/data.csv
+    outs:
+      - data/processed_cytosis
+
+  # train_cytosis:
+  #   cmd: python src/train_cytosis.py --datadir data/processed_cytosis --params params.yaml --modeldir models/cytosis --metrics metrics_cytosis.json
+  #   deps:
+  #     - src/train_cytosis.py
+  #     - data/processed_cytosis
+  #     - params.yaml
+  #   outs:
+  #     - models/cytosis
+  #   metrics:
+  #     - metrics_cytosis.json
