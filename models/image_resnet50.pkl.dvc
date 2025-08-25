@@ -1,0 +1,5 @@
+outs:
+- md5: 70282311de1863b100e5236f797ad34d
+  size: 55
+  hash: md5
+  path: image_resnet50.pkl
