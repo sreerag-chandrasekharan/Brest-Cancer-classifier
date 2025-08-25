@@ -36,5 +36,6 @@ stages:
       - params.yaml
     outs:
       - models/image_resnet50.h5
+      - models/image_resnet50.pkl
     metrics:
       - results/image_metrics.json
