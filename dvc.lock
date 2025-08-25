@@ -73,3 +73,28 @@ stages:
       md5: 7f550319fc321ae24cdae92cc6889b80.dir
       size: 4595366416
       nfiles: 9
+  train_images:
+    cmd: python src/train_images.py --params params.yaml
+    deps:
+    - path: data/processed/image_data
+      hash: md5
+      md5: 7f550319fc321ae24cdae92cc6889b80.dir
+      size: 4595366416
+      nfiles: 9
+    - path: params.yaml
+      hash: md5
+      md5: 21bb00a1f7e323c536a69c2030e7f594
+      size: 971
+    - path: src/train_images.py
+      hash: md5
+      md5: bad1902d1b18d6e77bfedf3c07c0954a
+      size: 3382
+    outs:
+    - path: models/image_resnet50.h5
+      hash: md5
+      md5: de981200d52cc2acee29a0ae41e44478
+      size: 97901888
+    - path: results/image_metrics.json
+      hash: md5
+      md5: 7f41a586c4a2c37f4a3787d61a05e44a
+      size: 52

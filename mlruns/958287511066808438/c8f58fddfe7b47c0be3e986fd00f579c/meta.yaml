@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/mlruns/958287511066808438/c8f58fddfe7b47c0be3e986fd00f579c/artifacts
+end_time: 1756160454910
+entry_point_name: ''
+experiment_id: '958287511066808438'
+lifecycle_stage: active
+run_id: c8f58fddfe7b47c0be3e986fd00f579c
+run_name: mercurial-shark-714
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756156873243
+status: 3
+tags: []
+user_id: Sreerag
