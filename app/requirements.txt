@@ -1,7 +1,15 @@
-streamlit
+# Core app
+streamlit==1.38.0
+pandas==2.2.2
+numpy==1.26.4
+Pillow==10.4.0
+plotly==5.22.0
+
+# ML / DL
 tensorflow==2.16.1
-numpy
-pandas
-scikit-learn
-plotly
-Pillow
+scikit-learn==1.5.1
+joblib==1.4.2
+
+# Experiment tracking & config
+mlflow==2.16.0
+pyyaml==6.0.2
