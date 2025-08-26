@@ -173,9 +173,9 @@ def display_prediction(input_data, uploaded_file):
     # Display
     st.subheader('Final Cell Cluster Prediction')
     if pred == 0:
-        st.write("<span style='color:green; font-size:24px;'>Benign</span>", unsafe_allow_html=True)
+        st.write("<span style='color:green; font-size:32px;'>Benign</span>", unsafe_allow_html=True)
     else:
-        st.write("<span style='color:red; font-size:24px;'>Malignant</span>", unsafe_allow_html=True)
+        st.write("<span style='color:red; font-size:32px;'>Malignant</span>", unsafe_allow_html=True)
 
     st.write(f"Probability of being benign: {final_proba[0]:.2%}")
     st.write(f"Probability of being malignant: {final_proba[1]:.2%}")
@@ -197,18 +197,19 @@ def main():
     with st.container():
         st.title("Breast Cancer Diagnosis")
         st.write("This app predicts whether a breast mass is benign or malignant using cytology measurements or mamography images. Adjust the sliders and upload an image, then click 'Predict Output' to see the results.")
-        col1, col2, col3 = st.columns([3,2,3])
+        col1, col2, col3 = st.columns([2,2,2])
         with col1:
-            # ---- Image upload
-            uploaded_file = st.file_uploader("Upload mamography image", type=["jpg", "jpeg", "png"])
+            st.subheader("Cell measurements")
             radar_chart = add_radar_chart(data)
             st.plotly_chart(radar_chart, use_container_width=True)
         with col2:
+            st.subheader("Upload mamography image")
+            # ---- Image upload
+            uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
             if uploaded_file is not None:
-                st.subheader("Uploaded Image")
-                st.image(uploaded_file, caption="Uploaded Cell Image", use_column_width=True)
+                st.image(uploaded_file, caption="Uploaded Image",  width=300)
             else:
-                st.subheader("No image uploaded")
+                st.write("No image uploaded")
         with col3:
             # ---- Predict button
             predict_clicked = st.button("Predict Output", use_container_width=True)
