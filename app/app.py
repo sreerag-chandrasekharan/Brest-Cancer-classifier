@@ -69,7 +69,7 @@ def add_sidebar():
     return input_dict
 
 
-scaler = joblib.load(open("C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/data/processed_cytosis/scaler.pkl", "rb"))
+scaler = joblib.load(open("app/scaler.pkl", "rb"))
 
 FEATURE_ORDER = [key for _, key in SLIDER_LABELS]
 
@@ -134,12 +134,12 @@ def add_radar_chart(input_dict):
 
 # ---- make predictions
 # Load the models---
-model_cytosis = joblib.load(open("C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/models/cytosis/cytosis_model.pkl", "rb"))
+model_cytosis = joblib.load(open("app/cytosis_model.pkl", "rb"))
 # Load the path from pickle
-with open("C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/models/image_resnet50.pkl", "rb") as f:
-    data = pickle.load(f)
+# with open("C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/models/image_resnet50.pkl", "rb") as f:
+#     data = pickle.load(f)
 
-image_model_path = data["model_path"]
+image_model_path = "app/image_resnet50.h5"
 image_model = load_model(image_model_path)
 
 def preprocess_image(img, target_size=(224,224)):
