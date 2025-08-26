@@ -1,4 +1,4 @@
-# Multiomic Data Analysis for Cancer Diagnosis
+# Multiomic Model for Cancer Diagnosis
 
 Cancer is a complex disease driven by changes across multiple molecular layers. Multiomic data—including genomics, transcriptomics, proteomics, and metabolomics—provides a comprehensive view of tumor biology. Integrating these datasets can improve early detection, prognosis, and treatment strategies.
 
