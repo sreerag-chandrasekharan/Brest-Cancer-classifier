@@ -203,7 +203,7 @@ def main():
             radar_chart = add_radar_chart(data)
             st.plotly_chart(radar_chart, use_container_width=True)
         with col2:
-            st.subheader("Upload mamography image")
+            st.subheader("Upload mammography image")
             # ---- Image upload
             uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"])
             if uploaded_file is not None:
