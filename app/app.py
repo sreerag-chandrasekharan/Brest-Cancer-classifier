@@ -6,6 +6,7 @@ import json
 import plotly.graph_objects as go
 import numpy as np
 from PIL import Image
+from tensorflow.keras.models import load_model
 
 # min and max values for the sliders
 with open("data/processed_cytosis/feature_stats.json", "r") as f:
@@ -134,8 +135,18 @@ def add_radar_chart(input_dict):
 # ---- make predictions
 # Load the models---
 model_cytosis = joblib.load(open("C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/models/cytosis/cytosis_model.pkl", "rb"))
+# Load the path from pickle
 with open("C:/Users/Sreerag/Documents/ML_chellange/Brest-Cancer-classifier/models/image_resnet50.pkl", "rb") as f:
-    image_model = pickle.load(f)
+    data = pickle.load(f)
+
+image_model_path = data["model_path"]
+image_model = load_model(image_model_path)
+
+def preprocess_image(img, target_size=(224,224)):
+    img = img.resize(target_size)
+    img_array = np.array(img) / 255.0   # normalize
+    img_array = np.expand_dims(img_array, axis=0)  # batch dimension
+    return img_array
 
 def display_prediction(input_data, uploaded_file):
     # Cytosis prediction
@@ -148,10 +159,8 @@ def display_prediction(input_data, uploaded_file):
     proba_image = None
     if uploaded_file is not None:
         img = Image.open(uploaded_file).convert("RGB")
-        img = img.resize((224, 224))  # adjust according to your image model
-        img_array = np.array(img) / 255.0
-        img_array = img_array.reshape(1, 224, 224, 3)
-        proba_image = image_model.predict_proba(img_array)[0]  # adapt if keras/pytorch
+        img_array = preprocess_image(img)
+        proba_image = image_model.predict(img_array)[0][0]
 
         # Combine predictions
     if proba_image is not None:
@@ -202,9 +211,9 @@ def main():
                 st.subheader("No image uploaded")
         with col3:
             # ---- Predict button
-            #predict_clicked = st.button("Predict Output", use_container_width=True)
-            #if predict_clicked:
-            display_prediction(data, uploaded_file)
+            predict_clicked = st.button("Predict Output", use_container_width=True)
+            if predict_clicked:
+                display_prediction(data, uploaded_file)
 
 
 
