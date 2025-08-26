@@ -9,7 +9,7 @@ from PIL import Image
 from tensorflow.keras.models import load_model
 
 # min and max values for the sliders
-with open("data/processed_cytosis/feature_stats.json", "r") as f:
+with open("feature_stats.json", "r") as f:
     FEATURE_STATS = json.load(f)
 
 def get_min_max_mean(key):
